@@ -1,0 +1,491 @@
+<!DOCTYPE html>
+<html lang="vi">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description"
+        content="Mai Văn Hưng - Quản Lý Kinh Doanh Khu Vực với 15+ năm kinh nghiệm tại 5S Fashion, FPT Long Châu, 30Shine">
+    <title>Mai Văn Hưng | Area Sale Manager</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap"
+        rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css">
+    <link rel="stylesheet" href="style.css">
+    <!-- EmailJS SDK -->
+    <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/@emailjs/browser@3/dist/email.min.js"></script>
+    <script type="text/javascript">
+        (function () {
+            emailjs.init("6BzSFuWt4DpUAe0Ip");
+        })();
+    </script>
+</head>
+
+<body>
+    <!-- Navigation -->
+    <nav class="navbar" id="navbar">
+        <div class="nav-container">
+            <a href="#" class="nav-logo">
+                <span class="logo-text">Mai Văn Hưng</span>
+            </a>
+            <ul class="nav-menu" id="nav-menu">
+                <li class="nav-item"><a href="#home" class="nav-link active">Trang chủ</a></li>
+                <li class="nav-item"><a href="#about" class="nav-link">Về tôi</a></li>
+                <li class="nav-item"><a href="#experience" class="nav-link">Kinh nghiệm</a></li>
+                <li class="nav-item"><a href="#skills" class="nav-link">Kỹ năng</a></li>
+                <li class="nav-item"><a href="#certificates" class="nav-link">Chứng chỉ</a></li>
+                <li class="nav-item"><a href="#contact" class="nav-link">Liên hệ</a></li>
+            </ul>
+            <button class="nav-toggle" id="nav-toggle" aria-label="Toggle menu">
+                <span class="hamburger"></span>
+            </button>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section class="hero" id="home">
+        <div class="hero-bg">
+            <div class="hero-shape shape-1"></div>
+            <div class="hero-shape shape-2"></div>
+            <div class="hero-shape shape-3"></div>
+        </div>
+        <div class="hero-container">
+            <div class="hero-content">
+                <span class="hero-greeting">Xin chào, tôi là</span>
+                <h1 class="hero-title">
+                    <span class="name-highlight">Mai Văn Hưng</span>
+                </h1>
+                <p class="hero-subtitle">
+                    <span class="typing-text" id="typing-text"></span>
+                    <span class="cursor">|</span>
+                </p>
+                <p class="hero-description">
+                    Với hơn <strong>15 năm kinh nghiệm thực chiến</strong> trong ngành bán lẻ, tôi là một nhà quản lý
+                    giải quyết vấn đề bằng tư duy dữ liệu và công nghệ.
+                </p>
+                <div class="hero-buttons">
+                    <a href="#experience" class="btn btn-primary">
+                        <span>Xem kinh nghiệm</span>
+                        <i class="fas fa-arrow-right"></i>
+                    </a>
+                    <a href="#contact" class="btn btn-secondary">
+                        <span>Liên hệ ngay</span>
+                    </a>
+                </div>
+                <div class="hero-social">
+                    <a href="https://zalo.me/0987918119" class="social-link" aria-label="Zalo"><i
+                            class="fas fa-comment-dots"></i></a>
+                    <a href="mailto:maihung89@gmail.com" class="social-link" aria-label="Email"><i
+                            class="fas fa-envelope"></i></a>
+                    <a href="tel:0987918119" class="social-link" aria-label="Phone"><i class="fas fa-phone"></i></a>
+                </div>
+            </div>
+            <div class="hero-image">
+                <div class="image-wrapper">
+                    <div class="image-border"></div>
+                    <img src="profile.jpg" alt="Mai Văn Hưng" class="profile-img">
+                    <div class="image-decoration dec-1"></div>
+                    <div class="image-decoration dec-2"></div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- About Section -->
+    <section class="about" id="about">
+        <div class="container">
+            <div class="section-header">
+                <span class="section-tag">Giới thiệu</span>
+                <h2 class="section-title">Về <span class="highlight">Tôi</span></h2>
+                <div class="section-line"></div>
+            </div>
+            <div class="about-content">
+                <div class="about-image">
+                    <div class="about-img-wrapper">
+                        <img src="profile.jpg" alt="About Me">
+                    </div>
+                </div>
+                <div class="about-text">
+                    <h3>Quản Lý Kinh Doanh Khu Vực</h3>
+                    <p>
+                        Với hơn <strong>15 năm kinh nghiệm thực chiến</strong> trong ngành bán lẻ, tôi không chỉ là một
+                        nhà quản lý vận hành, mà là một người giải quyết vấn đề bằng tư duy dữ liệu và công nghệ.
+                    </p>
+                    <p>
+                        Tôi đã từng làm việc tại các chuỗi bán lẻ lớn như <strong>5S Fashion</strong> (140+ Showroom),
+                        <strong>FPT Long Châu</strong> (2500+ Stores), và <strong>30Shine</strong> (100+ Salon),
+                        mang đến kết quả kinh doanh vượt trội.
+                    </p>
+
+                    <a href="#contact" class="btn btn-primary">
+                        <span>Liên hệ ngay</span>
+                        <i class="fas fa-arrow-right"></i>
+                    </a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Experience Section -->
+    <section class="projects" id="experience">
+        <div class="container">
+            <div class="section-header">
+                <span class="section-tag">Sự nghiệp</span>
+                <h2 class="section-title">Kinh nghiệm <span class="highlight">Làm việc</span></h2>
+                <div class="section-line"></div>
+            </div>
+            <div class="projects-grid">
+                <!-- 5S Fashion -->
+                <div class="project-card">
+                    <div class="project-image">
+                        <img src="logo-5sfashion.png" alt="5S Fashion Logo" class="company-logo logo-original">
+                    </div>
+                    <div class="project-info">
+                        <span class="project-category">09/2023 - 02/2025 • Fashion • 140+ Showroom</span>
+                        <h4>5S Fashion - QLKD Khu Vực</h4>
+                        <ul class="experience-list">
+                            <li>Quản lý 17 cửa hàng, doanh thu tăng ~10%/năm</li>
+                            <li>Đào tạo &amp; phát triển &gt;50 nhân sự bán hàng</li>
+                            <li>Mở rộng 8 cửa hàng mới trong 12 tháng</li>
+                            <li>Tái cấu trúc quy trình vận hành</li>
+                        </ul>
+                        <div class="project-tech">
+                            <span><i class="fas fa-trophy"></i> Top 3 QLKV xuất sắc</span>
+                        </div>
+                    </div>
+                </div>
+                <!-- FPT Long Châu -->
+                <div class="project-card">
+                    <div class="project-image">
+                        <img src="logo-longchau.png" alt="FPT Long Châu Logo" class="company-logo-full logo-longchau">
+                    </div>
+                    <div class="project-info">
+                        <span class="project-category">04/2022 - 08/2023 • Pharmacy • 2500+ Stores</span>
+                        <h4>FPT Long Châu - QLKD Khu Vực</h4>
+                        <ul class="experience-list">
+                            <li>Đạt 95 - 110% KPI doanh số mỗi tháng</li>
+                            <li>Tuyển dụng, đào tạo 20+ nhân sự</li>
+                            <li>Xây dựng kế hoạch Local Marketing</li>
+                            <li>Phân tích dữ liệu &amp; đề xuất chiến lược</li>
+                        </ul>
+                        <div class="project-tech">
+                            <span><i class="fas fa-trophy"></i> Top 1 KPI toàn hệ thống T12/22-T01/23</span>
+                        </div>
+                    </div>
+                </div>
+                <!-- 30Shine -->
+                <div class="project-card">
+                    <div class="project-image">
+                        <img src="logo-30shine.png" alt="30Shine Logo" class="company-logo-full logo-30shine">
+                    </div>
+                    <div class="project-info">
+                        <span class="project-category">05/2015 - 03/2022 • Beauty • 100+ Salon</span>
+                        <h4>30Shine - QL Khu Vực &amp; Phát Triển HT</h4>
+                        <ul class="experience-list">
+                            <li>Xây dựng &amp; phát triển 30+ cửa hàng</li>
+                            <li>Vận hành 10+ cửa hàng, quản lý 100+ nhân sự</li>
+                            <li>Tăng tỷ lệ khách quay lại lên 33%</li>
+                        </ul>
+                        <div class="project-tech">
+                            <span><i class="fas fa-trophy"></i> "Người dẫn lối" 3 năm (2017-2020)</span>
+                        </div>
+                    </div>
+                </div>
+                <!-- Linh Trung Tín -->
+                <div class="project-card">
+                    <div class="project-image">
+                        <img src="logo-ltt.png" alt="Linh Trung Tín Logo" class="company-logo-full logo-ltt">
+                    </div>
+                    <div class="project-info">
+                        <span class="project-category">09/2010 - 04/2015 • Retail</span>
+                        <h4>Linh Trung Tín - Quản Lý Cửa Hàng</h4>
+                        <ul class="experience-list">
+                            <li>Quản lý &amp; điều phối hoạt động kinh doanh</li>
+                            <li>Đào tạo đội ngũ 10+ nhân viên</li>
+                            <li>Kiểm soát tồn kho, tăng cross-selling</li>
+                            <li>Báo cáo &amp; phân tích số liệu kinh doanh</li>
+                        </ul>
+                        <div class="project-tech">
+                            <span>Store Manager</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Skills Section - Style like Hobbies -->
+    <section class="about" id="skills">
+        <div class="container">
+            <div class="section-header">
+                <span class="section-tag">Năng lực</span>
+                <h2 class="section-title">Kỹ năng <span class="highlight">Chuyên môn</span></h2>
+                <div class="section-line"></div>
+            </div>
+            <div class="hobbies-grid">
+                <div class="hobby-item">
+                    <i class="fas fa-users-cog"></i>
+                    <h4>Kỹ năng lãnh đạo</h4>
+                    <p>Dẫn dắt và truyền cảm hứng cho đội ngũ đạt mục tiêu</p>
+                </div>
+                <div class="hobby-item">
+                    <i class="fas fa-chart-line"></i>
+                    <h4>Phát triển thị trường</h4>
+                    <p>Mở rộng điểm bán mới, tăng lượng khách hàng</p>
+                </div>
+                <div class="hobby-item">
+                    <i class="fas fa-tasks"></i>
+                    <h4>Kỹ năng lập kế hoạch</h4>
+                    <p>Xây dựng và thực hiện kế hoạch kinh doanh chi tiết</p>
+                </div>
+                <div class="hobby-item">
+                    <i class="fas fa-database"></i>
+                    <h4>Phân tích dữ liệu &amp; KPI</h4>
+                    <p>Đưa ra chiến lược kinh doanh dựa trên dữ liệu</p>
+                </div>
+                <div class="hobby-item">
+                    <i class="fas fa-chalkboard-teacher"></i>
+                    <h4>Kỹ năng đào tạo</h4>
+                    <p>Phát triển chương trình đào tạo hiệu quả</p>
+                </div>
+                <div class="hobby-item">
+                    <i class="fas fa-store"></i>
+                    <h4>Quản lý chuỗi bán lẻ</h4>
+                    <p>Kiểm soát vận hành &amp; doanh số hệ thống</p>
+                </div>
+                <div class="hobby-item">
+                    <i class="fas fa-cogs"></i>
+                    <h4>Tối ưu vận hành</h4>
+                    <p>Tối ưu hóa quy trình, quy định, báo cáo</p>
+                </div>
+                <div class="hobby-item">
+                    <i class="fas fa-robot"></i>
+                    <h4>Ứng dụng AI</h4>
+                    <p>AI Prompt, Chatbot, Automation trong vận hành</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Certificates Section - Style like Hobbies -->
+    <section class="about" id="certificates">
+        <div class="container">
+            <div class="section-header">
+                <span class="section-tag">Đào tạo</span>
+                <h2 class="section-title">Chứng chỉ <span class="highlight">&amp; Đào tạo</span></h2>
+                <div class="section-line"></div>
+            </div>
+            <div class="hobbies-grid">
+                <div class="hobby-item">
+                    <i class="fas fa-robot"></i>
+                    <h4>AI Prompt &amp; Chatbot Mastery</h4>
+                    <p>Ứng dụng AI trong tối ưu vận hành, content MKT, kịch bản CSKH (2024-2025)</p>
+                </div>
+                <div class="hobby-item">
+                    <i class="fab fa-google"></i>
+                    <h4>Google Introduction AI</h4>
+                    <p>Kiến thức cơ bản về AI - Google (2025)</p>
+                </div>
+                <div class="hobby-item">
+                    <i class="fas fa-user-tie"></i>
+                    <h4>Đào Tạo Quản Lý Cấp Trung</h4>
+                    <p>Agile Academy, VTI - Phát triển năng lực quản lý (2017-2020)</p>
+                </div>
+                <div class="hobby-item">
+                    <i class="fas fa-award"></i>
+                    <h4>Nâng Tầm Dịch Vụ &amp; Sale</h4>
+                    <p>PLC, Nhân Việt - Kỹ năng phục vụ và bán hàng (2018-2019)</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Hobbies Section -->
+    <section class="about" id="hobbies">
+        <div class="container">
+            <div class="section-header">
+                <span class="section-tag">Cá nhân</span>
+                <h2 class="section-title">Sở thích <span class="highlight">&amp; Đam mê</span></h2>
+                <div class="section-line"></div>
+            </div>
+            <div class="hobbies-grid">
+                <div class="hobby-item">
+                    <i class="fas fa-book"></i>
+                    <h4>Ham học hỏi</h4>
+                    <p>Đọc sách về kinh doanh, quản lý, AI &amp; tự động hóa</p>
+                </div>
+                <div class="hobby-item">
+                    <i class="fas fa-users"></i>
+                    <h4>Kết nối &amp; phát triển</h4>
+                    <p>Tham gia hội nhóm quản lý kinh doanh &amp; bán lẻ</p>
+                </div>
+                <div class="hobby-item">
+                    <i class="fas fa-chart-bar"></i>
+                    <h4>Phân tích dữ liệu</h4>
+                    <p>Tìm hiểu quản lý chuỗi, chiến lược tăng trưởng</p>
+                </div>
+                <div class="hobby-item">
+                    <i class="fas fa-futbol"></i>
+                    <h4>Thể thao</h4>
+                    <p>Chạy bộ, gym, bóng đá để duy trì năng lượng</p>
+                </div>
+                <div class="hobby-item">
+                    <i class="fas fa-plane"></i>
+                    <h4>Du lịch &amp; khám phá</h4>
+                    <p>Khảo sát &amp; phân tích thị trường bán lẻ</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section class="contact" id="contact">
+        <div class="container">
+            <div class="section-header">
+                <span class="section-tag">Kết nối</span>
+                <h2 class="section-title">Liên hệ <span class="highlight">Với Tôi</span></h2>
+                <div class="section-line"></div>
+            </div>
+            <div class="contact-content">
+                <div class="contact-info">
+                    <h3>Hãy kết nối!</h3>
+                    <p>
+                        Bạn đang tìm kiếm một nhà quản lý kinh doanh kết hợp tư duy dữ liệu và công nghệ?
+                        Hãy liên hệ với tôi ngay!
+                    </p>
+                    <div class="contact-details">
+                        <div class="contact-item">
+                            <div class="contact-icon"><i class="fas fa-envelope"></i></div>
+                            <div class="contact-text">
+                                <span>Email</span>
+                                <a href="mailto:maihung89@gmail.com">maihung89@gmail.com</a>
+                            </div>
+                        </div>
+                        <div class="contact-item">
+                            <div class="contact-icon"><i class="fas fa-phone"></i></div>
+                            <div class="contact-text">
+                                <span>Hotline/Zalo</span>
+                                <a href="tel:0987918119">0987 918 119</a>
+                            </div>
+                        </div>
+                        <div class="contact-item">
+                            <div class="contact-icon"><i class="fas fa-map-marker-alt"></i></div>
+                            <div class="contact-text">
+                                <span>Địa chỉ</span>
+                                <p>Hà Nội, Việt Nam</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="contact-social">
+                        <a href="https://zalo.me/0987918119" class="social-btn"><i class="fas fa-comment-dots"></i></a>
+                        <a href="mailto:maihung89@gmail.com" class="social-btn"><i class="fas fa-envelope"></i></a>
+                        <a href="tel:0987918119" class="social-btn"><i class="fas fa-phone"></i></a>
+                    </div>
+                </div>
+                <form class="contact-form" id="contact-form">
+                    <div class="form-group">
+                        <input type="text" id="name" name="name" required placeholder=" ">
+                        <label for="name">Họ và tên</label>
+                        <span class="form-icon"><i class="fas fa-user"></i></span>
+                    </div>
+                    <div class="form-group">
+                        <input type="email" id="email" name="email" required placeholder=" ">
+                        <label for="email">Email</label>
+                        <span class="form-icon"><i class="fas fa-envelope"></i></span>
+                    </div>
+                    <div class="form-group">
+                        <input type="text" id="subject" name="subject" required placeholder=" ">
+                        <label for="subject">Tiêu đề</label>
+                        <span class="form-icon"><i class="fas fa-tag"></i></span>
+                    </div>
+                    <div class="form-group">
+                        <textarea id="message" name="message" rows="5" required placeholder=" "></textarea>
+                        <label for="message">Nội dung tin nhắn</label>
+                    </div>
+                    <button type="submit" class="btn btn-primary btn-full">
+                        <span>Gửi tin nhắn</span>
+                        <i class="fas fa-paper-plane"></i>
+                    </button>
+                </form>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-brand">
+                    <a href="#" class="footer-logo">Mai Văn Hưng</a>
+                    <p>
+                        Quản Lý Kinh Doanh Khu Vực với 15+ năm kinh nghiệm trong ngành bán lẻ.
+                        Chuyên gia về vận hành chuỗi, phát triển thị trường và ứng dụng công nghệ.
+                    </p>
+                    <div class="footer-social">
+                        <a href="https://zalo.me/0987918119"><i class="fas fa-comment-dots"></i></a>
+                        <a href="mailto:maihung89@gmail.com"><i class="fas fa-envelope"></i></a>
+                        <a href="tel:0987918119"><i class="fas fa-phone"></i></a>
+                    </div>
+                </div>
+                <div class="footer-links">
+                    <h4>Liên kết nhanh</h4>
+                    <ul>
+                        <li><a href="#home">Trang chủ</a></li>
+                        <li><a href="#about">Về tôi</a></li>
+                        <li><a href="#experience">Kinh nghiệm</a></li>
+                        <li><a href="#skills">Kỹ năng</a></li>
+                        <li><a href="#contact">Liên hệ</a></li>
+                    </ul>
+                </div>
+                <div class="footer-contact">
+                    <h4>Thông tin liên hệ</h4>
+                    <ul>
+                        <li><i class="fas fa-envelope"></i> maihung89@gmail.com</li>
+                        <li><i class="fas fa-phone"></i> 0987 918 119</li>
+                        <li><i class="fas fa-map-marker-alt"></i> Hà Nội, Việt Nam</li>
+                    </ul>
+                </div>
+                <div class="footer-newsletter">
+                    <h4>Đăng ký nhận tin</h4>
+                    <p>Nhận thông tin cập nhật về kinh nghiệm và xu hướng ngành bán lẻ.</p>
+                    <form class="newsletter-form">
+                        <input type="email" placeholder="Nhập email của bạn">
+                        <button type="submit"><i class="fas fa-paper-plane"></i></button>
+                    </form>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2025 Mai Văn Hưng. All Rights Reserved.</p>
+                <div class="footer-bottom-links">
+                    <a href="#">Privacy Policy</a>
+                    <a href="#">Terms of Service</a>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Theme Switcher -->
+    <div class="theme-switcher">
+        <div class="color-palette" id="color-palette">
+            <button class="color-option color-default active" data-color="default" title="Mặc định"></button>
+            <button class="color-option color-ocean" data-color="ocean" title="Đại dương"></button>
+            <button class="color-option color-forest" data-color="forest" title="Rừng xanh"></button>
+            <button class="color-option color-sunset" data-color="sunset" title="Hoàng hôn"></button>
+            <button class="color-option color-lavender" data-color="lavender" title="Lavender"></button>
+            <button class="color-option color-rose" data-color="rose" title="Hồng rose"></button>
+        </div>
+        <button class="theme-toggle-btn" id="color-toggle" title="Đổi màu sắc">
+            <i class="fas fa-palette"></i>
+        </button>
+        <button class="theme-toggle-btn" id="theme-toggle" title="Đổi chế độ sáng/tối">
+            <i class="fas fa-moon" id="theme-icon"></i>
+        </button>
+    </div>
+
+    <script src="script.js"></script>
+    <script src="theme-switcher.js"></script>
+</body>
+
+
+</html>
