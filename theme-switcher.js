@@ -9,7 +9,7 @@ const colorOptions = document.querySelectorAll('.color-option');
 
 // Get saved preferences or use defaults
 const savedTheme = localStorage.getItem('theme') || 'dark';
-const savedColor = localStorage.getItem('color') || 'default';
+const savedColor = localStorage.getItem('color') || 'ocean';
 
 // Initialize theme on page load
 function initTheme() {
@@ -17,10 +17,8 @@ function initTheme() {
     document.documentElement.setAttribute('data-theme', savedTheme);
     updateThemeIcon(savedTheme);
 
-    // Set color
-    if (savedColor !== 'default') {
-        document.documentElement.setAttribute('data-color', savedColor);
-    }
+    // Set color (ocean is now default)
+    document.documentElement.setAttribute('data-color', savedColor);
     updateColorActive(savedColor);
 }
 
