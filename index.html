@@ -413,22 +413,30 @@
                 </div>
                 <form class="contact-form" id="contact-form">
                     <div class="form-group">
-                        <input type="text" id="name" name="name" required placeholder=" ">
+                        <input type="text" id="name" name="name" required placeholder=" "
+                            oninvalid="this.setCustomValidity('Vui lòng nhập họ tên của bạn')"
+                            oninput="this.setCustomValidity('')">
                         <label for="name">Họ và tên</label>
                         <span class="form-icon"><i class="fas fa-user"></i></span>
                     </div>
                     <div class="form-group">
-                        <input type="email" id="email" name="email" required placeholder=" ">
+                        <input type="email" id="email" name="email" required placeholder=" "
+                            oninvalid="this.setCustomValidity('Vui lòng nhập địa chỉ email hợp lệ')"
+                            oninput="this.setCustomValidity('')">
                         <label for="email">Email</label>
                         <span class="form-icon"><i class="fas fa-envelope"></i></span>
                     </div>
                     <div class="form-group">
-                        <input type="text" id="subject" name="subject" required placeholder=" ">
+                        <input type="text" id="subject" name="subject" required placeholder=" "
+                            oninvalid="this.setCustomValidity('Vui lòng nhập tiêu đề')"
+                            oninput="this.setCustomValidity('')">
                         <label for="subject">Tiêu đề</label>
                         <span class="form-icon"><i class="fas fa-tag"></i></span>
                     </div>
                     <div class="form-group">
-                        <textarea id="message" name="message" rows="5" required placeholder=" "></textarea>
+                        <textarea id="message" name="message" rows="5" required placeholder=" "
+                            oninvalid="this.setCustomValidity('Vui lòng nhập nội dung tin nhắn')"
+                            oninput="this.setCustomValidity('')"></textarea>
                         <label for="message">Nội dung tin nhắn</label>
                     </div>
                     <button type="submit" class="btn btn-primary btn-full">
