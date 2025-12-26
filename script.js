@@ -387,16 +387,23 @@ if (!isTouchDevice) {
     });
 }
 
-// ===== MAGNETIC BUTTON EFFECT =====
+// ===== MAGNETIC BUTTON EFFECT (OPTIMIZED) =====
 const magneticButtons = document.querySelectorAll('.btn, .social-link, .social-btn');
 
 magneticButtons.forEach(btn => {
-    btn.addEventListener('mousemove', (e) => {
-        const rect = btn.getBoundingClientRect();
-        const x = e.clientX - rect.left - rect.width / 2;
-        const y = e.clientY - rect.top - rect.height / 2;
+    let isAnimating = false;
 
-        btn.style.transform = `translate(${x * 0.3}px, ${y * 0.3}px)`;
+    btn.addEventListener('mousemove', (e) => {
+        if (isAnimating) return;
+        isAnimating = true;
+
+        requestAnimationFrame(() => {
+            const rect = btn.getBoundingClientRect();
+            const x = e.clientX - rect.left - rect.width / 2;
+            const y = e.clientY - rect.top - rect.height / 2;
+            btn.style.transform = `translate(${x * 0.2}px, ${y * 0.2}px)`;
+            isAnimating = false;
+        });
     });
 
     btn.addEventListener('mouseleave', () => {
@@ -404,37 +411,35 @@ magneticButtons.forEach(btn => {
     });
 });
 
-// ===== TILT CARD EFFECT =====
+// ===== TILT CARD EFFECT (OPTIMIZED) =====
 const tiltCards = document.querySelectorAll('.project-card, .hobby-item');
 
 tiltCards.forEach(card => {
+    let tiltAnimating = false;
+
     card.addEventListener('mousemove', (e) => {
-        const rect = card.getBoundingClientRect();
-        const x = e.clientX - rect.left;
-        const y = e.clientY - rect.top;
+        if (tiltAnimating) return;
+        tiltAnimating = true;
 
-        const centerX = rect.width / 2;
-        const centerY = rect.height / 2;
+        requestAnimationFrame(() => {
+            const rect = card.getBoundingClientRect();
+            const x = e.clientX - rect.left;
+            const y = e.clientY - rect.top;
+            const centerX = rect.width / 2;
+            const centerY = rect.height / 2;
 
-        const rotateX = (y - centerY) / 10;
-        const rotateY = (centerX - x) / 10;
+            // Reduced rotation for smoother effect
+            const rotateX = (y - centerY) / 20;
+            const rotateY = (centerX - x) / 20;
 
-        card.style.transform = `perspective(1000px) rotateX(${rotateX}deg) rotateY(${rotateY}deg) scale3d(1.02, 1.02, 1.02)`;
+            card.style.transform = `perspective(1000px) rotateX(${rotateX}deg) rotateY(${rotateY}deg) scale3d(1.01, 1.01, 1.01)`;
+            card.style.setProperty('--mouse-x', `${x}px`);
+            card.style.setProperty('--mouse-y', `${y}px`);
+            tiltAnimating = false;
+        });
     });
 
     card.addEventListener('mouseleave', () => {
         card.style.transform = 'perspective(1000px) rotateX(0) rotateY(0) scale3d(1, 1, 1)';
-    });
-});
-
-// ===== SPOTLIGHT EFFECT ON CARDS =====
-document.querySelectorAll('.project-card').forEach(card => {
-    card.addEventListener('mousemove', (e) => {
-        const rect = card.getBoundingClientRect();
-        const x = e.clientX - rect.left;
-        const y = e.clientY - rect.top;
-
-        card.style.setProperty('--mouse-x', `${x}px`);
-        card.style.setProperty('--mouse-y', `${y}px`);
     });
 });
