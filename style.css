@@ -244,8 +244,9 @@
     opacity: 0.12;
     pointer-events: none;
     z-index: 9999;
-    transform: translate(-50%, -50%);
-    transition: opacity 0.3s ease;
+    left: -150px;
+    top: -150px;
+    will-change: transform;
     mix-blend-mode: screen;
 }
 
@@ -257,12 +258,17 @@
     background: var(--primary);
     pointer-events: none;
     z-index: 10000;
-    transform: translate(-50%, -50%);
-    transition: transform 0.15s ease, background 0.2s ease;
+    left: -4px;
+    top: -4px;
+    will-change: transform;
+    transition: width 0.15s ease, height 0.15s ease, background 0.2s ease;
 }
 
 .cursor-dot.hovering {
-    transform: translate(-50%, -50%) scale(2.5);
+    width: 20px;
+    height: 20px;
+    left: -10px;
+    top: -10px;
     background: var(--accent);
 }
 

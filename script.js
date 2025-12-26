@@ -322,68 +322,69 @@ style.textContent = `
 `;
 document.head.appendChild(style);
 
-// ===== CURSOR GLOW EFFECT =====
+// ===== CURSOR GLOW EFFECT (PERFORMANCE OPTIMIZED) =====
 const isTouchDevice = 'ontouchstart' in window || navigator.maxTouchPoints > 0;
 
 if (!isTouchDevice) {
-    // Create cursor elements
+    // Create cursor elements with hardware acceleration
     const cursorGlow = document.createElement('div');
     cursorGlow.className = 'cursor-glow';
+    cursorGlow.style.willChange = 'transform';
     document.body.appendChild(cursorGlow);
 
     const cursorDot = document.createElement('div');
     cursorDot.className = 'cursor-dot';
+    cursorDot.style.willChange = 'transform';
     document.body.appendChild(cursorDot);
 
     let mouseX = 0, mouseY = 0;
     let glowX = 0, glowY = 0;
+    let rafId = null;
 
-    // Track mouse position
+    // Track mouse position with passive listener
     document.addEventListener('mousemove', (e) => {
         mouseX = e.clientX;
         mouseY = e.clientY;
 
-        // Update dot position immediately
-        cursorDot.style.left = mouseX + 'px';
-        cursorDot.style.top = mouseY + 'px';
-    });
+        // Update dot position using transform (GPU accelerated)
+        cursorDot.style.transform = `translate(${mouseX}px, ${mouseY}px)`;
+    }, { passive: true });
 
-    // Smooth follow for glow
-    function animateCursor() {
-        glowX += (mouseX - glowX) * 0.1;
-        glowY += (mouseY - glowY) * 0.1;
-
-        cursorGlow.style.left = glowX + 'px';
-        cursorGlow.style.top = glowY + 'px';
-
-        requestAnimationFrame(animateCursor);
+    // Smooth follow for glow with lower frequency
+    let lastTime = 0;
+    function animateCursor(currentTime) {
+        // Throttle to ~30fps for glow
+        if (currentTime - lastTime > 33) {
+            glowX += (mouseX - glowX) * 0.08;
+            glowY += (mouseY - glowY) * 0.08;
+            cursorGlow.style.transform = `translate(${glowX}px, ${glowY}px)`;
+            lastTime = currentTime;
+        }
+        rafId = requestAnimationFrame(animateCursor);
     }
-    animateCursor();
+    rafId = requestAnimationFrame(animateCursor);
 
-    // Hover effect on interactive elements
-    const interactiveElements = document.querySelectorAll('a, button, .btn, .social-link, .project-card, .hobby-item, .nav-link');
+    // Simplified hover detection - only for main interactive elements
+    const mainInteractive = document.querySelectorAll('.btn, .social-link, .nav-link');
 
-    interactiveElements.forEach(el => {
+    mainInteractive.forEach(el => {
         el.addEventListener('mouseenter', () => {
             cursorDot.classList.add('hovering');
-            cursorGlow.style.opacity = '0.2';
-        });
+        }, { passive: true });
 
         el.addEventListener('mouseleave', () => {
             cursorDot.classList.remove('hovering');
-            cursorGlow.style.opacity = '0.12';
-        });
+        }, { passive: true });
     });
 
-    // Hide cursor when leaving window
-    document.addEventListener('mouseleave', () => {
-        cursorGlow.style.opacity = '0';
-        cursorDot.style.opacity = '0';
-    });
-
-    document.addEventListener('mouseenter', () => {
-        cursorGlow.style.opacity = '0.12';
-        cursorDot.style.opacity = '1';
+    // Pause animation when page not visible
+    document.addEventListener('visibilitychange', () => {
+        if (document.hidden && rafId) {
+            cancelAnimationFrame(rafId);
+            rafId = null;
+        } else if (!document.hidden && !rafId) {
+            rafId = requestAnimationFrame(animateCursor);
+        }
     });
 }
 
