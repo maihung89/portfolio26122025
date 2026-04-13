@@ -51,11 +51,13 @@ function handleScroll() {
         navbar.classList.remove('scrolled');
     }
 
-    // Back to top button
-    if (window.scrollY > 500) {
-        backToTop.classList.add('visible');
-    } else {
-        backToTop.classList.remove('visible');
+    // Back to top button (guard: element may not exist)
+    if (backToTop) {
+        if (window.scrollY > 500) {
+            backToTop.classList.add('visible');
+        } else {
+            backToTop.classList.remove('visible');
+        }
     }
 
     // Active nav link on scroll
@@ -133,7 +135,9 @@ filterBtns.forEach(btn => {
 
 // ===== SKILL BARS ANIMATION =====
 function animateSkillBars() {
-    const skillSection = document.querySelector('.skills');
+    const skillSection = document.querySelector('.skills') || document.querySelector('#skills');
+    if (!skillSection || skillProgress.length === 0) return; // Guard: elements may not exist
+
     const sectionTop = skillSection.getBoundingClientRect().top;
     const windowHeight = window.innerHeight;
 
