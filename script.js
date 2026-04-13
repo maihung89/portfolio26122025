@@ -78,7 +78,7 @@ function handleScroll() {
     });
 }
 
-window.addEventListener('scroll', handleScroll);
+// [PERF] Merged with animateSkillBars listener below into single handler
 
 // ===== MOBILE MENU TOGGLE =====
 navToggle.addEventListener('click', () => {
@@ -149,10 +149,11 @@ function animateSkillBars() {
 // ===== COUNTER ANIMATION =====
 // Removed as per user request
 
-// Scroll event for animations
+// [PERF] Single scroll handler with passive flag (merged handleScroll + animateSkillBars)
 window.addEventListener('scroll', () => {
+    handleScroll();
     animateSkillBars();
-});
+}, { passive: true });
 
 // ===== FORM SUBMISSION WITH EMAILJS =====
 const contactForm = document.getElementById('contact-form');
@@ -287,18 +288,19 @@ document.querySelectorAll('.section-header, .about-content, .skill-card, .projec
 });
 
 // ===== PARALLAX EFFECT FOR HERO SHAPES =====
+// [PERF] Cache DOM query outside listener, add passive flag
+const heroShapes = document.querySelectorAll('.hero-shape');
 document.addEventListener('mousemove', (e) => {
-    const shapes = document.querySelectorAll('.hero-shape');
-    const mouseX = e.clientX / window.innerWidth;
-    const mouseY = e.clientY / window.innerHeight;
+    const mx = e.clientX / window.innerWidth;
+    const my = e.clientY / window.innerHeight;
 
-    shapes.forEach((shape, index) => {
+    heroShapes.forEach((shape, index) => {
         const speed = (index + 1) * 20;
-        const x = (mouseX - 0.5) * speed;
-        const y = (mouseY - 0.5) * speed;
+        const x = (mx - 0.5) * speed;
+        const y = (my - 0.5) * speed;
         shape.style.transform = `translate(${x}px, ${y}px)`;
     });
-});
+}, { passive: true });
 
 // ===== INITIALIZE =====
 document.addEventListener('DOMContentLoaded', () => {
@@ -353,12 +355,17 @@ if (!isTouchDevice) {
     // Smooth follow for glow with lower frequency
     let lastTime = 0;
     function animateCursor(currentTime) {
-        // Throttle to ~30fps for glow
-        if (currentTime - lastTime > 33) {
-            glowX += (mouseX - glowX) * 0.08;
-            glowY += (mouseY - glowY) * 0.08;
-            cursorGlow.style.transform = `translate(${glowX}px, ${glowY}px)`;
-            lastTime = currentTime;
+        // [PERF] Skip render when glow is close to target (mouse idle)
+        const dx = Math.abs(mouseX - glowX);
+        const dy = Math.abs(mouseY - glowY);
+        if (dx > 0.5 || dy > 0.5) {
+            // Throttle to ~30fps for glow
+            if (currentTime - lastTime > 33) {
+                glowX += (mouseX - glowX) * 0.08;
+                glowY += (mouseY - glowY) * 0.08;
+                cursorGlow.style.transform = `translate(${glowX}px, ${glowY}px)`;
+                lastTime = currentTime;
+            }
         }
         rafId = requestAnimationFrame(animateCursor);
     }
@@ -413,7 +420,8 @@ magneticButtons.forEach(btn => {
 });
 
 // ===== TILT CARD EFFECT (OPTIMIZED) =====
-const tiltCards = document.querySelectorAll('.project-card, .hobby-item');
+// [PERF] Reduced scope: only project-card (removed hobby-item to cut 8 mousemove listeners)
+const tiltCards = document.querySelectorAll('.project-card');
 
 tiltCards.forEach(card => {
     let tiltAnimating = false;
